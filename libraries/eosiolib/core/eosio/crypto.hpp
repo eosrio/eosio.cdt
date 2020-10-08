@@ -228,6 +228,22 @@ namespace eosio {
    /// @endcond
 
    /**
+    *  Decode an eosio::public_key into a std::string
+    *
+    *  @param obj - The public key to be decoded
+    *  @return std::string - String representation of the decoded public key
+    */
+   std::string public_key_to_string(const public_key& key);
+
+   /**
+    *  Encode a std::string into an eosio::public_key
+    *
+    *  @param obj - The string representation of a public key
+    *  @return eosio::public_key - Encoded public key
+    */
+   public_key public_key_from_string(const std::string_view& s);
+
+   /**
     *  @defgroup crypto Crypto
     *  @ingroup core
     *  @brief Defines API for calculating and checking hashes
