@@ -195,7 +195,7 @@ namespace eosio {
       std::string result;
 
       if (key.index() == key_type::k1) {
-         result = key_to_string(key, "", "EOS");
+         result = key_to_string(key, "K1", "PUB_K1_");
       } else if (key.index() == key_type::r1) {
          result = key_to_string(key, "R1", "PUB_R1_");
       } else {
@@ -210,6 +210,8 @@ namespace eosio {
 
       if (s.substr(0, 3) == "EOS") {
          result = string_to_key(s.substr(3), key_type::k1, "");
+      } else if (s.substr(0, 7) == "PUB_K1_") {
+         result = string_to_key(s.substr(7), key_type::k1, "K1");
       } else if (s.substr(0, 7) == "PUB_R1_") {
          result = string_to_key(s.substr(7), key_type::r1, "R1");
       } else {
